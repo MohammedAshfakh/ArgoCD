@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: employee-api
+  namespace: employee-ns
 spec:
   replicas: 3
   selector:
@@ -17,11 +18,18 @@ spec:
         image: 799517508141.dkr.ecr.us-east-1.amazonaws.com/employee-api:latest
         ports:
         - containerPort: 8080
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8080
         livenessProbe:
           httpGet:
-            path: /health
+            path: /actuator/health
             port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
+
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 20
+          periodSeconds: 10
+

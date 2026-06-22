@@ -25,11 +25,11 @@ sleep 60
 echo "Getting ArgoCD URL..."
 kubectl get svc argocd-server -n argocd
 
-kubectl get svc argocd-server -n argocd > argocd-url.txt
+kubectl get svc argocd-server -n argocd >> argocd.details
 
 echo "Fetching ArgoCD admin password..."
 kubectl get secret argocd-initial-admin-secret \
 -n argocd \
--o jsonpath="{.data.password}" | base64 -d > argocd-password
+-o jsonpath="{.data.password}" | base64 -d >> argocd.details
 
 echo "DONE"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CLUSTNAME="employee-cluster"
+CLUSTNAME= $1
 REGION="us-east-1"
 TIER="t3.medium"
 NODESCOUNT=3
@@ -18,4 +18,4 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 
 sudo snap install kubectl --classic 
 
-aws eks update-kubeconfig --region "REGION" --name "$CLUSTNAME"
+aws eks update-kubeconfig --region "$REGION" --name "$CLUSTNAME"
