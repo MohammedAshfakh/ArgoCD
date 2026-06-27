@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CLUSTNAME= $1
+CLUSTNAME= "employee-cluster"
 REGION="us-east-1"
 TIER="t3.medium"
 NODESCOUNT=3

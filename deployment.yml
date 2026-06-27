@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: employee-api
-        image: 799517508141.dkr.ecr.us-east-1.amazonaws.com/employee-api:latest
+        image: 799517508141.dkr.ecr.us-east-1.amazonaws.com/gitops-app:latest
         ports:
         - containerPort: 8080
         livenessProbe:
