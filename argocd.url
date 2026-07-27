@@ -1,2 +1,0 @@
-NAME            TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)                      AGE
-argocd-server   LoadBalancer   10.100.73.175   a30aa9d2848184e06a16cfdde95164b3-908055069.us-east-1.elb.amazonaws.com   80:31632/TCP,443:32315/TCP   10m
