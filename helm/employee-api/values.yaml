@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: 799517508141.dkr.ecr.us-east-1.amazonaws.com/gitops-app
-  tag: latest
+  tag: 
 
 containerPort: 8080
 
