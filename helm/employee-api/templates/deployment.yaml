@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-api
+  namespace: employee-ns
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: employee-api
+
+  template:
+    metadata:
+      labels:
+        app: employee-api
+
+    spec:
+      containers:
+      - name: employee-api
+
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
+        ports:
+        - containerPort: {{ .Values.containerPort }}
+
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: {{ .Values.containerPort }}
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
+
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: {{ .Values.containerPort }}
+          initialDelaySeconds: 20
+          periodSeconds: 10

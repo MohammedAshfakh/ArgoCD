@@ -1,0 +1,11 @@
+replicaCount: 3
+
+image:
+  repository: 799517508141.dkr.ecr.us-east-1.amazonaws.com/gitops-app
+  tag: latest
+
+containerPort: 8080
+
+service:
+  type: LoadBalancer
+  port: 8080
